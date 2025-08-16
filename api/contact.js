@@ -56,23 +56,23 @@ module.exports = async function handler(req, res) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'owner.tresgallos@gmail.com',
-      subject: `Tres Gallos Inquiry: ${normalizedSubject}`,
+      subject: `Tres Gallos Question: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h2 style="margin: 0;">🏖️ New Tres Gallos Inquiry</h2>
+            <h2 style="margin: 0;">New Tres Gallos Question</h2>
           </div>
           
           <div style="background: #f8fafb; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="color: #1e40af; margin-top: 0;">Contact Information</h3>
               <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Subject:</strong> ${normalizedSubject}</p>
+              <p><strong>Subject:</strong> ${subject}</p>
             </div>
             
             <div style="background: white; padding: 20px; border-radius: 8px;">
-              <h3 style="color: #1e40af; margin-top: 0;">Message</h3>
-              <p style="line-height: 1.6; color: #374151;">${String(normalizedMessage).replace(/\n/g, '<br>')}</p>
+              <h3 style="color: #1e40af; margin-top: 0;">Question</h3>
+              <p style="line-height: 1.6; color: #374151;">${message.replace(/\n/g, '<br>')}</p>
             </div>
             
             <div style="margin-top: 20px; padding: 15px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
