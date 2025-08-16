@@ -98,10 +98,9 @@ p {
 /* Hero Section */
 .hero {
     height: 90vh;
-    background-image: linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.35)), url('../images/ridgevale_sunset.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll; /* default to scroll to avoid mobile pixelation */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -702,6 +701,15 @@ a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Reduce hero height and adjust focal point on tablets/large phones */
+    .hero {
+        height: 52vh !important;
+        background-attachment: scroll;
+        /* show more of the image and avoid excessive zoom */
+        background-size: auto, contain !important; /* [gradient],[image] */
+        background-position: center, center 28% !important; /* [gradient],[image] */
+        background-repeat: no-repeat, no-repeat !important;
+    }
     .nav-menu {
         gap: 1rem;
     }
@@ -753,12 +761,25 @@ a:hover {
     }
 }
 
+@media (max-width: 600px) {
+    .hero {
+        height: 48vh !important;
+        /* Use multi-layer sizing: [gradient],[image] */
+        background-size: auto, contain !important;
+        background-position: center, center 25% !important;
+        background-repeat: no-repeat, no-repeat !important;
+    }
+}
+
 @media (max-width: 480px) {
     /* Improve hero image rendering on small screens */
     .hero {
-        height: 65vh !important; /* override inline height on pages that set it */
+        height: 42vh !important; /* override inline height on pages that set it */
         background-attachment: scroll; /* fix iOS Safari issues with fixed backgrounds */
-        background-position: center 30%; /* bias to show more of the top of the image */
+        /* Ensure the full image fits to reduce perceived zoom; keep gradient full */
+        background-size: auto, contain !important; /* [gradient],[image] */
+        background-position: center, center 20% !important; /* [gradient],[image] */
+        background-repeat: no-repeat, no-repeat !important;
     }
     .hero-content h1 {
         font-size: 2rem;
@@ -784,5 +805,12 @@ a:hover {
     .hero {
         background-attachment: scroll;
         background-position: center 30%;
+    }
+}
+
+/* Desktop+: allow parallax where it renders crisply */
+@media (min-width: 1200px) {
+    .hero {
+        background-attachment: fixed;
     }
 }
