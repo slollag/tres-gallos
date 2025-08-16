@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Rules - Tres Gallos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="hero" style="height: 90vh; background-image: linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.35)), url('images/house_facade.jpeg');">
+    <header class="hero">
+        <img 
+            src="images/house_facade.jpeg"
+            srcset="images/house_facade-mobile.jpeg 800w, images/house_facade.jpeg 1920w"
+            sizes="(max-width: 600px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            alt="Tres Gallos house" 
+            class="hero-bg" 
+            width="1920" 
+            height="1080" 
+            loading="eager" />
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">

@@ -109,6 +109,30 @@ p {
     position: relative;
 }
 
+/* Sharper hero: allow optional <img class="hero-bg"> inside .hero */
+.hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+/* Gradient overlay when using hero-bg */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.35));
+    z-index: 1;
+}
+
 .hero-content {
     z-index: 2;
     max-width: 800px;
@@ -705,11 +729,12 @@ a:hover {
     .hero {
         height: 52vh !important;
         background-attachment: scroll;
-        /* show more of the image and avoid excessive zoom */
-        background-size: auto, contain !important; /* [gradient],[image] */
+        /* maintain sharpness with cover; control focal point */
+        background-size: auto, cover !important; /* [gradient],[image] */
         background-position: center, center 28% !important; /* [gradient],[image] */
         background-repeat: no-repeat, no-repeat !important;
     }
+    .hero .hero-bg { object-position: center 28%; }
     .nav-menu {
         gap: 1rem;
     }
@@ -765,10 +790,11 @@ a:hover {
     .hero {
         height: 48vh !important;
         /* Use multi-layer sizing: [gradient],[image] */
-        background-size: auto, contain !important;
+        background-size: auto, cover !important;
         background-position: center, center 25% !important;
         background-repeat: no-repeat, no-repeat !important;
     }
+    .hero .hero-bg { object-position: center 25%; }
 }
 
 @media (max-width: 480px) {
@@ -777,10 +803,11 @@ a:hover {
         height: 42vh !important; /* override inline height on pages that set it */
         background-attachment: scroll; /* fix iOS Safari issues with fixed backgrounds */
         /* Ensure the full image fits to reduce perceived zoom; keep gradient full */
-        background-size: auto, contain !important; /* [gradient],[image] */
+        background-size: auto, cover !important; /* [gradient],[image] */
         background-position: center, center 20% !important; /* [gradient],[image] */
         background-repeat: no-repeat, no-repeat !important;
     }
+    .hero .hero-bg { object-position: center 20%; }
     .hero-content h1 {
         font-size: 2rem;
     }
