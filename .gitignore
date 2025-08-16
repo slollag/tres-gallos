@@ -1,3 +1,4 @@
 .env
 pages_info
 node_modules
+.vercel
