@@ -754,6 +754,12 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+    /* Improve hero image rendering on small screens */
+    .hero {
+        height: 65vh !important; /* override inline height on pages that set it */
+        background-attachment: scroll; /* fix iOS Safari issues with fixed backgrounds */
+        background-position: center 30%; /* bias to show more of the top of the image */
+    }
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -770,5 +776,13 @@ a:hover {
     .nav-menu {
         flex-wrap: wrap;
         justify-content: center;
+    }
+}
+
+/* Tablet/mobile: disable parallax and adjust focal point to reduce cropping */
+@media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll;
+        background-position: center 30%;
     }
 }
