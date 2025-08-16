@@ -12,6 +12,11 @@ body {
     background-color: #0f172a;
 }
 
+:root {
+    /* Approximate fixed navbar height to offset hero content */
+    --nav-offset: 72px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -97,7 +102,8 @@ p {
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: calc(90vh - var(--nav-offset));
+    padding-top: var(--nav-offset);
     background-size: cover;
     background-position: center;
     background-attachment: scroll; /* default to scroll to avoid mobile pixelation */
@@ -158,6 +164,10 @@ main {
 section {
     padding: 4rem 0;
 }
+
+/* Reduce extra gap between hero and first content section */
+header.hero + main { padding-top: 1.5rem; }
+header.hero + main section:first-of-type { padding-top: 1.5rem; }
 
 section h2 {
     text-align: center;
