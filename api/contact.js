@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'owner.tresgallos@gmail.com',
-      subject: `Tres Gallos Question: ${subject}`,
+      subject: `Tres Gallos Question: ${normalizedSubject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -67,12 +67,12 @@ module.exports = async function handler(req, res) {
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="color: #1e40af; margin-top: 0;">Contact Information</h3>
               <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Subject:</strong> ${subject}</p>
+              <p><strong>Subject:</strong> ${normalizedSubject}</p>
             </div>
             
             <div style="background: white; padding: 20px; border-radius: 8px;">
               <h3 style="color: #1e40af; margin-top: 0;">Question</h3>
-              <p style="line-height: 1.6; color: #374151;">${message.replace(/\n/g, '<br>')}</p>
+              <p style="line-height: 1.6; color: #374151;">${String(normalizedMessage).replace(/\n/g, '<br>')}</p>
             </div>
             
             <div style="margin-top: 20px; padding: 15px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
@@ -116,7 +116,7 @@ module.exports = async function handler(req, res) {
               </p>
               <p style="line-height: 1.6; color: #374151;">
                 <strong>Your question details:</strong><br>
-                Subject: ${subject}<br>
+                Subject: ${normalizedSubject}<br>
                 Sent: ${new Date().toLocaleString('en-US', { 
                   timeZone: 'America/New_York',
                   year: 'numeric',
