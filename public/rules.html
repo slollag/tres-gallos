@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rules - Tres Gallos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero" style="height: 90vh; background-image: linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.35)), url('images/house_facade.jpeg');">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Tres Gallos</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="things-to-do.html" class="nav-link">Things to Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rules.html" class="nav-link">Rules</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>House Rules</h1>
+            <p>Please review our policies to ensure a great stay</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="rules">
+            <div class="container">
+                <h2>House Rules</h2>
+                
+                <div class="rule-section">
+                    <h3>Check Out Before 10:00 AM</h3>
+                    <p>Prior to your departure, please tidy up the home by doing the following:</p>
+                    <ul>
+                        <li>Empty refrigerators and dispose all perishable items</li>
+                        <li>If the barbeque grill was used, scrape/clean barbeque grill grates, and install the cover</li>
+                        <li>If the wood firepit was used, collect/bag cool ashes with household trash, and install the cover</li>
+                        <li>Dispose all household trash to trash containers in parking lot</li>
+                        <li>Load and start the dishwasher for all used dining and kitchen items</li>
+                        <li>Return all used recreational equipment</li>
+                        <li>Gather all used bedding and towels in a pile on the floor</li>
+                        <li>Lower and secure patio umbrellas</li>
+                        <li>Turn off all lights, electronics, and appliances</li>
+                        <li>Close and lock all windows and doors</li>
+                    </ul>
+                    <p><strong>Additional fees will be imposed if the home is found in an unsatisfactory condition, so please return it to the condition in which you found it.</strong></p>
+                </div>
+
+                <div class="rule-section">
+                    <h3>Point of Contact</h3>
+                    <p>Our property manager, Sasha, will reach out to you closer to your arrival.</p>
+                </div>
+
+                <div class="rule-section">
+                    <h3>General Rules</h3>
+                    <ul>
+                        <li>No smoking or vaping inside the house or on the property grounds</li>
+                        <li>No events, parties, or large gatherings</li>
+                        <li>A maximum of 4 vehicles allowed on the premises</li>
+                        <li>Dog friendly with a fee</li>
+                        <li>We only permit only one medium, house-trained dog, subject to a $100 fee</li>
+                        <li>We do not allow multiple dogs, or any other pet</li>
+                        <li>Dogs are not allowed on the furniture</li>
+                        <li>Promptly clean up and dispose of all pet waste with household trash</li>
+                        <li>Close patio umbrellas when not in use</li>
+                        <li>Fire pit may only be used on the side yard</li>
+                        <li>Must be at least 25 years old to book</li>
+                        <li>Report any damages prior to check-out</li>
+                    </ul>
+                </div>
+
+                <div class="rule-section">
+                    <h3>Additional Rules for Off Season Bookings (Before June 28 and After August 28)</h3>
+                    <ul>
+                        <li>Must submit guest questionnaire within 48 hours of booking</li>
+                        <li>Must submit images of government-issued identification no later than 48 hours before arrival</li>
+                        <li>Host will meet guests at the start of the rental</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="questionnaire">
+            <div class="container">
+                <h2>Edge-of-Season Guest Questionnaire</h2>
+                <p>For bookings before June 28 and after August 28, please complete this questionnaire.</p>
+                <p>Owner must approve all off-season bookings.</p>
+                
+                <form id="rulesForm" class="rules-form">
+                    <div class="form-group">
+                        <label for="guestName">Guest Name:</label>
+                        <input type="text" id="guestName" name="guestName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guestAge">Age:</label>
+                        <input type="number" id="guestAge" name="guestAge" min="25" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guestCount">How many guests besides you will be at the property during the rental period?</label>
+                        <input type="number" id="guestCount" name="guestCount" min="0" max="9" required>
+                    </div>
+                    
+                    <div id="guestsContainer">
+                        <!-- Dynamic guest fields will be added here -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reason">Briefly describe your reason for booking the property:</label>
+                        <textarea id="reason" name="reason" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
+                            <span class="checkmark"></span>
+                            I have read and understand the house rules
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Submit Questionnaire</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tres Gallos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
