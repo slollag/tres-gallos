@@ -1,3 +1,3 @@
 # Tres Gallos - Cape Cod Vacation Rental Website
 
-[tresgalloschatham.com](tresgalloschatham.com)
+([tresgalloschatham.com](https://tresgalloschatham.com/))
