@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a href="rules.html" class="nav-link">Rules</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="off-season.html" class="nav-link">Off-Season</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -101,56 +104,12 @@
 
         <section class="questionnaire">
             <div class="container">
-                <h2>Edge-of-Season Guest Questionnaire</h2>
-                <p>For bookings before June 28 and after August 28, please complete this questionnaire.</p>
-                <p>Owner must approve all off-season bookings.</p>
-                
-                <form id="rulesForm" class="rules-form">
-                    <div class="form-group">
-                        <label for="guestName">Guest Name:</label>
-                        <input type="text" id="guestName" name="guestName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guestAge">Age:</label>
-                        <input type="number" id="guestAge" name="guestAge" min="25" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Mobile Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guestCount">How many guests besides you will be at the property during the rental period?</label>
-                        <input type="number" id="guestCount" name="guestCount" min="0" max="9" required>
-                    </div>
-                    
-                    <div id="guestsContainer">
-                        <!-- Dynamic guest fields will be added here -->
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reason">Briefly describe your reason for booking the property:</label>
-                        <textarea id="reason" name="reason" rows="4" required></textarea>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
-                            <span class="checkmark"></span>
-                            I have read and understand the house rules
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn-primary">Submit Questionnaire</button>
-                </form>
-                <div id="formMessage" class="form-message"></div>
+                <h2>Off-Season Guest Questionnaire</h2>
+                <p>For bookings before June 28 and after August 28, please complete the questionnaire.</p>
+                <p>
+                    Go to the separate form: 
+                    <a href="off-season.html" rel="noopener">Open Off-Season Questionnaire</a>
+                </p>
             </div>
         </section>
     </main>

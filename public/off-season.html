@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Season Questionnaire - Tres Gallos</title>
+    <link rel="stylesheet" href="styles.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Complete the off-season guest questionnaire for Tres Gallos to help us prepare for your stay." />
+    <meta name="robots" content="index, follow" />
+</head>
+<body>
+    <header class="hero">
+        <img 
+            src="images/house_facade.jpeg"
+            srcset="images/house_facade-mobile.jpeg 800w, images/house_facade.jpeg 1920w"
+            sizes="(max-width: 600px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            alt="Tres Gallos house" 
+            class="hero-bg" 
+            width="1920" 
+            height="1080" 
+            loading="eager" />
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>Tres Gallos</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="things-to-do.html" class="nav-link">Things to Do</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rules.html" class="nav-link">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="off-season.html" class="nav-link">Off-Season</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Off-Season Questionnaire</h1>
+            <p>Please complete this so we can prepare for your stay</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="questionnaire">
+            <div class="container">
+                <h2>Off-Season Guest Questionnaire</h2>
+                <p>For bookings before June 28 and after August 28, please complete this questionnaire.</p>
+                <p>Owner must approve all off-season bookings.</p>
+
+                <form id="rulesForm" class="rules-form">
+                    <div class="form-group">
+                        <label for="guestName">Guest Name:</label>
+                        <input type="text" id="guestName" name="guestName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guestAge">Age:</label>
+                        <input type="number" id="guestAge" name="guestAge" min="25" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guestCount">How many guests besides you will be at the property during the rental period?</label>
+                        <input type="number" id="guestCount" name="guestCount" min="0" max="9" required>
+                    </div>
+                    
+                    <div id="guestsContainer">
+                        <!-- Dynamic guest fields will be added here by script.js -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reason">Briefly describe your reason for booking the property:</label>
+                        <textarea id="reason" name="reason" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rulesAgreement" name="rulesAgreement" required>
+                            <span class="checkmark"></span>
+                            I have read and understand the <a href="rules.html" target="_blank" rel="noopener">house rules</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Submit Questionnaire</button>
+                </form>
+                <div id="formMessage" class="form-message"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tres Gallos. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
