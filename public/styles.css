@@ -58,7 +58,7 @@ p {
 
 /* Navigation */
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     background: rgba(15, 23, 42, 0.95);
@@ -102,8 +102,8 @@ p {
 
 /* Hero Section */
 .hero {
-    height: calc(90vh - var(--nav-offset));
-    padding-top: var(--nav-offset);
+    height: 90vh;
+    padding-top: 0;
     background-size: cover;
     background-position: center;
     background-attachment: scroll; /* default to scroll to avoid mobile pixelation */
@@ -113,6 +113,7 @@ p {
     align-items: center;
     text-align: center;
     position: relative;
+    overflow: hidden; /* clip parallax image to hero bounds */
 }
 
 /* Sharper hero: allow optional <img class="hero-bg"> inside .hero */
@@ -125,6 +126,7 @@ p {
     object-fit: cover;
     object-position: center;
     z-index: 0;
+    will-change: transform;
 }
 
 /* Gradient overlay when using hero-bg */
@@ -136,6 +138,7 @@ p {
     right: 0;
     bottom: 0;
     background: linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.35));
+    opacity: var(--overlay-opacity, 1);
     z-index: 1;
 }
 
@@ -143,6 +146,7 @@ p {
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
+    will-change: transform, opacity;
 }
 
 .hero-content h1 {
@@ -798,7 +802,7 @@ a:hover {
 
 @media (max-width: 600px) {
     .hero {
-        height: 48vh !important;
+        height: 50vh !important;
         /* Use multi-layer sizing: [gradient],[image] */
         background-size: auto, cover !important;
         background-position: center, center 25% !important;
@@ -810,7 +814,7 @@ a:hover {
 @media (max-width: 480px) {
     /* Improve hero image rendering on small screens */
     .hero {
-        height: 42vh !important; /* override inline height on pages that set it */
+        height: 46vh !important; /* a bit taller for readability */
         background-attachment: scroll; /* fix iOS Safari issues with fixed backgrounds */
         /* Ensure the full image fits to reduce perceived zoom; keep gradient full */
         background-size: auto, cover !important; /* [gradient],[image] */

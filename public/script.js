@@ -1,12 +1,61 @@
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
+// Navbar scroll effect & hero parallax
+(function() {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-    }
-});
+    const hero = document.querySelector('.hero');
+    const heroImg = hero ? hero.querySelector('.hero-bg') : null;
+    const heroContent = hero ? hero.querySelector('.hero-content') : null;
+
+    let lastY = window.scrollY;
+    const onScroll = () => {
+        const y = window.scrollY || window.pageYOffset;
+
+        // Navbar background tightening
+        if (navbar) {
+            navbar.style.background = y > 50 ? 'rgba(15, 23, 42, 0.98)' : 'rgba(15, 23, 42, 0.95)';
+        }
+
+        // Parallax and fade effects for hero
+        if (hero && heroImg && heroContent) {
+            const rect = hero.getBoundingClientRect();
+            const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+            // Scroll amount relative to hero top
+            const relScroll = Math.max(0, -rect.top);
+
+            // Only animate while hero is in view
+            if (rect.bottom > 0 && rect.top < viewHeight) {
+                const visible = Math.min(rect.height, viewHeight - rect.top);
+                const progress = Math.min(1, Math.max(0, visible / rect.height));
+
+                // Move background slower than scroll (parallax) relative to hero
+                const imgTranslate = Math.round(relScroll * 0.25);
+                heroImg.style.transform = `translate3d(0, ${imgTranslate}px, 0) scale(1.05)`;
+
+                // Fade overlay slightly and move content upwards a bit
+                const contentTranslate = Math.round(relScroll * 0.15);
+                hero.style.setProperty('--overlay-opacity', String(1 - progress * 0.15));
+                heroContent.style.transform = `translate3d(0, ${-contentTranslate}px, 0)`;
+                heroContent.style.opacity = String(1 - progress * 0.1);
+            }
+        }
+
+        lastY = y;
+    };
+
+    // Use rAF for smoother scroll-linked animations
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                onScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Initial run
+    onScroll();
+})();
 
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
