@@ -1,3 +1,8 @@
 {
-  "version": 2
+  "version": 2,
+  "rewrites": [
+    { "source": "/things-to-do", "destination": "/things-to-do.html" },
+    { "source": "/rules", "destination": "/rules.html" },
+    { "source": "/off-season", "destination": "/off-season.html" }
+  ]
 }
